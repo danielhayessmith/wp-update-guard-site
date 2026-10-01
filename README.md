@@ -30,9 +30,7 @@ npx wrangler login
 npm run deploy
 ```
 
-`wrangler.jsonc` points `assets.directory` at `public/`. There is no Worker script. Cloudflare serves the HTML, CSS, fonts, and images from the edge.
-
-To attach a custom domain, add it on the Worker in the Cloudflare dashboard after the first deploy.
+`wrangler.jsonc` points `assets.directory` at `public/` and attaches `wpupdateguard.com` plus `www.wpupdateguard.com`. There is no Worker script. Cloudflare serves the HTML, CSS, fonts, and images from the edge. Deploy to the Daniel@schutzsmith.com account (`59ba9a1935ca8eea580443faafbd9ecc`).
 
 ## What's in the repo
 
@@ -40,9 +38,25 @@ To attach a custom domain, add it on the Worker in the Cloudflare dashboard afte
 - `public/styles/tokens.css` holds the brand color, type, space, and radius tokens.
 - `public/styles/site.css` holds layout.
 - `public/assets/logo/` is the Guard lockup, mascot, icon, and wordmark. Use the SVG files. Do not retype the wordmark.
-- `public/assets/bots/` is the Grok and Muse app icons.
+- `public/assets/bots/` is the Grok, Muse, and ChatGPT app icons.
+- `skills/wp-update-guard/` is the installable agent skill (`npx skills add`).
 - `design/` is the brand book and token source.
 
 Get started and Get WP Update Guard jump to `#bots`. The live Grok Bot link is `https://x.ai/bot/PiMQ3ggqSw61_IbxsIAB3`.
 
-Muse, the AI Skill download, Privacy, and Contact are still placeholders.
+## Install the AI Skill
+
+The homepage install command (from the public skill repo) is:
+
+```bash
+npx skills add danielhayessmith/wp-update-guard
+```
+
+That copies `skills/wp-update-guard/` into the agent you pick. The skill updates WordPress on a staging copy first, screenshots key pages, rolls back if a page breaks, and only then updates the live site.
+
+```bash
+python3 skills/wp-update-guard/scripts/guard.py init
+python3 skills/wp-update-guard/scripts/compare-pages.py --self-test
+```
+
+Muse and the ChatGPT Plugin are still Coming soon. Privacy and Contact stay placeholders.
