@@ -7,6 +7,7 @@ const root = join(dirname(fileURLToPath(import.meta.url)), "..");
 const files = [
   ["scripts/assets/grok.png.b64", "public/assets/bots/grok.png"],
   ["scripts/assets/muse.png.b64", "public/assets/bots/muse.png"],
+  ["scripts/assets/chatgpt.png.b64", "public/assets/bots/chatgpt.png"],
   ["scripts/assets/Inter-Regular.woff.b64", "public/assets/fonts/Inter-Regular.woff"],
   ["scripts/assets/Inter-SemiBold.woff.b64", "public/assets/fonts/Inter-SemiBold.woff"],
   ["scripts/assets/Inter-Bold.woff.b64", "public/assets/fonts/Inter-Bold.woff"],
