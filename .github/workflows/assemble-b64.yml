@@ -1,0 +1,35 @@
+name: assemble-b64
+on:
+  push:
+    paths:
+      - ".github/workflows/assemble-b64.yml"
+permissions:
+  contents: write
+jobs:
+  assemble:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          persist-credentials: true
+      - name: Assemble Inter-Regular.woff.b64
+        run: |
+          set -euo pipefail
+          python3 - << 'PY'
+          import pathlib, hashlib
+          root = pathlib.Path("scripts/assets/_b64parts/inter-regular")
+          parts = [root / f"c{i:03d}.txt" for i in range(65)]
+          data = b"".join(p.read_bytes() for p in parts)
+          sha = hashlib.sha1(b"blob %d\0" % len(data) + data).hexdigest()
+          print("size", len(data), "sha", sha)
+          if len(data) != 77137 or sha != "8df6f647afe2e98ddc906975ba0ea11105157e14":
+              raise SystemExit(1)
+          pathlib.Path("scripts/assets/Inter-Regular.woff.b64").write_bytes(data)
+          PY
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add scripts/assets/Inter-Regular.woff.b64
+          git rm -r scripts/assets/_b64parts/inter-regular
+          git rm -f .github/workflows/assemble-b64.yml
+          git commit -m "Add exact Inter-Regular.woff.b64 and remove staging chunks"
+          git push origin HEAD:main
