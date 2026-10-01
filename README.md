@@ -21,18 +21,35 @@ To confirm the approved copy and asset paths are still in the page:
 npm run check:copy
 ```
 
-## Deploy to Cloudflare
+## Deploy to Cloudflare Pages
 
-This is a static Workers assets project (the current Pages-style host). From this directory:
+This is a static site. There is no Worker and no Pages Functions. Cloudflare Pages serves the files in `public/`.
+
+`wrangler.jsonc` uses `pages_build_output_dir` (`./public`). That is the Pages project flag. Do not add `main`, `assets`, or Worker `routes` — those create a Worker.
+
+### From the dashboard (preferred)
+
+1. In the Cloudflare dashboard, open **Workers & Pages**.
+2. **Create** → **Pages** → **Import an existing Git repository**.
+3. Connect `danielhayessmith/wp-update-guard-site`.
+4. Build settings:
+   - Framework preset: **None**
+   - Build command: `npm run prepare`
+   - Build output directory: `public`
+   - Production branch: `main`
+5. Deploy to the Daniel@schutzsmith.com account (`59ba9a1935ca8eea580443faafbd9ecc`).
+6. On the Pages project, open **Custom domains** and add `wpupdateguard.com` and `www.wpupdateguard.com`. The zone already uses Cloudflare nameservers, so Pages can create the records. Do not attach those hostnames to a Worker.
+
+### From the CLI
 
 ```bash
 npx wrangler login
-npm run deploy
+CLOUDFLARE_ACCOUNT_ID=59ba9a1935ca8eea580443faafbd9ecc npm run deploy
 ```
 
-`wrangler.jsonc` points `assets.directory` at `public/` and attaches `wpupdateguard.com` plus `www.wpupdateguard.com`. There is no Worker script. Cloudflare serves the HTML, CSS, fonts, and images from the edge. Deploy to the Daniel@schutzsmith.com account (`59ba9a1935ca8eea580443faafbd9ecc`).
+That runs `wrangler pages deploy --project-name=wp-update-guard` and uploads `public/`. Custom domains are still attached on the Pages project, not in Wrangler.
 
-## What's in the repo
+## What’s in the repo
 
 - `public/index.html` is the homepage.
 - `public/styles/tokens.css` holds the brand color, type, space, and radius tokens.
