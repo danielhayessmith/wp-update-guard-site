@@ -1,10 +1,15 @@
 {
   "$schema": "./node_modules/wrangler/config-schema.json",
   "name": "wp-update-guard",
+  "account_id": "59ba9a1935ca8eea580443faafbd9ecc",
   "compatibility_date": "2026-10-01",
   "assets": {
     "directory": "./public"
   },
+  "routes": [
+    { "pattern": "wpupdateguard.com", "custom_domain": true },
+    { "pattern": "www.wpupdateguard.com", "custom_domain": true }
+  ],
   "observability": {
     "enabled": true
   }
