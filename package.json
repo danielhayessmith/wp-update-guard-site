@@ -3,9 +3,10 @@
   "private": true,
   "description": "Public marketing site for WP Update Guard",
   "scripts": {
-    "dev": "wrangler dev --port 43147 --ip 0.0.0.0",
-    "deploy": "wrangler deploy",
-    "check:copy": "node scripts/check-copy.mjs"
+    "prepare": "node scripts/unpack-assets.mjs",
+    "dev": "wrangler pages dev",
+    "deploy": "wrangler pages deploy --project-name=wp-update-guard",
+    "check:copy": "node scripts/unpack-assets.mjs && node scripts/check-copy.mjs"
   },
   "devDependencies": {
     "wrangler": "^4.45.0"

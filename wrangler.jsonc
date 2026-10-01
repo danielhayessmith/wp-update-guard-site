@@ -1,16 +1,11 @@
 {
   "$schema": "./node_modules/wrangler/config-schema.json",
+  // Static Cloudflare Pages project. No Worker script, no Functions.
   "name": "wp-update-guard",
-  "account_id": "59ba9a1935ca8eea580443faafbd9ecc",
+  "pages_build_output_dir": "./public",
   "compatibility_date": "2026-10-01",
-  "assets": {
-    "directory": "./public"
-  },
-  "routes": [
-    { "pattern": "wpupdateguard.com", "custom_domain": true },
-    { "pattern": "www.wpupdateguard.com", "custom_domain": true }
-  ],
-  "observability": {
-    "enabled": true
+  "dev": {
+    "ip": "0.0.0.0",
+    "port": 43147
   }
 }
