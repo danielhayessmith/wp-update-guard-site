@@ -1,0 +1,56 @@
+:root {
+  --brand-navy: #0f2a4a;
+  --brand-navy-deep: #0a1f38;
+  --brand-green: #2fa36b;
+  --green-text: #1d7a4f;
+  --green-tint: #e6f4ec;
+  --surface: #ffffff;
+  --surface-alt: #f5f8fa;
+  --ink: #0f2a4a;
+  --ink-muted: #4b5d73;
+  --line: #dde4ec;
+  --action: #0f2a4a;
+  --on-action: #ffffff;
+  --pass: #1d7a4f;
+  --on-pass: #ffffff;
+  --fail: #c2412d;
+  --focus: #2563a8;
+  --space-1: 4px;
+  --space-2: 8px;
+  --space-3: 12px;
+  --space-4: 16px;
+  --space-6: 24px;
+  --space-8: 32px;
+  --space-12: 48px;
+  --space-20: 80px;
+  --space-30: 120px;
+  --radius-sm: 6px;
+  --radius-md: 12px;
+  --radius-lg: 20px;
+  --radius-pill: 999px;
+  --shadow-card: 0 1px 2px rgba(10,31,56,0.06), 0 8px 24px rgba(10,31,56,0.08);
+  --font-sans: "Inter", system-ui, -apple-system, "Segoe UI", sans-serif;
+}
+[data-theme="dark"] {
+  --brand-navy: #0f2a4a;
+  --brand-navy-deep: #0a1f38;
+  --brand-green: #2fa36b;
+  --green-text: #5cc790;
+  --green-tint: #12392b;
+  --surface: #0a1f38;
+  --surface-alt: #0f2a4a;
+  --ink: #e8eef5;
+  --ink-muted: #9fb0c4;
+  --line: #23405f;
+  --action: #5cc790;
+  --on-action: #0a1f38;
+  --pass: #5cc790;
+  --on-pass: #0a1f38;
+  --fail: #f08a76;
+  --focus: #8ab8ea;
+  --shadow-card: 0 1px 2px rgba(0,0,0,0.3), 0 8px 24px rgba(0,0,0,0.35);
+}
+@font-face { font-family: "Inter"; src: url("../assets/fonts/Inter-Regular.woff") format("woff"); font-weight: 400; font-display: swap; }
+@font-face { font-family: "Inter"; src: url("../assets/fonts/Inter-SemiBold.woff") format("woff"); font-weight: 600; font-display: swap; }
+@font-face { font-family: "Inter"; src: url("../assets/fonts/Inter-Bold.woff") format("woff"); font-weight: 700; font-display: swap; }
+@font-face { font-family: "Inter"; src: url("../assets/fonts/Inter-ExtraBold.woff") format("woff"); font-weight: 800; font-display: swap; }

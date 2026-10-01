@@ -1,0 +1,25 @@
+/* WP Update Guard — component styles. Load after tokens.css. */
+.wpug-btn{display:inline-flex;align-items:center;justify-content:center;gap:var(--space-2);font:600 15px/20px var(--font-sans);padding:var(--space-4) var(--space-6);border-radius:var(--radius-md);border:2px solid transparent;cursor:pointer;text-decoration:none;transition:background-color .15s ease-out,color .15s ease-out,border-color .15s ease-out}
+.wpug-btn--primary{background:var(--action);color:var(--on-action)}
+.wpug-btn--primary:hover{background:var(--brand-navy-deep)}
+[data-theme="dark"] .wpug-btn--primary:hover{background:#7ad6a6}
+.wpug-btn--secondary{background:transparent;color:var(--ink);border-color:var(--line)}
+.wpug-btn--secondary:hover{border-color:var(--ink-muted)}
+.wpug-btn--lg{padding:18px 28px;font-size:17px}
+.wpug-btn:focus-visible{outline:2px solid var(--focus);outline-offset:2px}
+.wpug-badge{display:inline-flex;align-items:center;gap:6px;font:700 14px/18px var(--font-sans);padding:6px 12px 6px 8px;border-radius:var(--radius-pill)}
+.wpug-badge svg{width:18px;height:18px}
+.wpug-badge--pass{background:var(--pass);color:var(--on-pass)}
+.wpug-badge--fail{background:var(--fail);color:#fff}
+[data-theme="dark"] .wpug-badge--fail{color:var(--brand-navy-deep)}
+.wpug-step{background:var(--surface);border:1px solid var(--line);border-radius:var(--radius-lg);padding:var(--space-6)}
+.wpug-step__num{display:inline-grid;place-items:center;width:40px;height:40px;border-radius:var(--radius-pill);background:var(--green-tint);color:var(--green-text);font:800 16px/1 var(--font-sans);margin-bottom:var(--space-4)}
+.wpug-step__title{font:700 20px/28px var(--font-sans);letter-spacing:-0.01em;color:var(--ink);margin:0 0 var(--space-2)}
+.wpug-step__body{font:400 16px/26px var(--font-sans);color:var(--ink-muted);margin:0}
+.wpug-site{display:flex;align-items:center;gap:var(--space-3);padding:14px var(--space-4);border:1px solid var(--line);border-radius:var(--radius-md);background:var(--surface);font:400 15px/20px var(--font-sans);color:var(--ink)}
+.wpug-site__name{font-weight:600;flex:1;min-width:0;overflow:hidden;text-overflow:ellipsis;white-space:nowrap}
+.wpug-site__meta{color:var(--ink-muted);font-size:13px}
+.wpug-pill{display:inline-flex;align-items:center;gap:5px;font:600 13px/16px var(--font-sans);padding:4px 10px;border-radius:var(--radius-pill)}
+.wpug-pill--pass{background:var(--green-tint);color:var(--green-text)}
+.wpug-pill--wait{background:var(--surface-alt);color:var(--ink-muted)}
+.wpug-pill--fail{background:transparent;color:var(--fail);box-shadow:inset 0 0 0 1.5px var(--fail)}
